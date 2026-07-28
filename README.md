@@ -18,9 +18,6 @@ Runs a complete shipping loop for the current changes:
 6. Review the diff, fix valid findings, and repeat until clean.
 7. Hand off a merge-ready pull request without merging unless explicitly authorized.
 
-The skill includes additional conventions for Seeq CRAB repositories. Those paths
-optionally use the separate `sd` and `tenant-branch` skills.
-
 ## Install
 
 Install `ship` globally for Codex:
