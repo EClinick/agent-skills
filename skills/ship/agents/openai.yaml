@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ship"
+  short_description: "Commit, push, open a PR, and review changes"
+  default_prompt: "Use $ship to lint, test, commit, push, open or update a PR, and complete the review loop."
