@@ -1,0 +1,4 @@
+interface:
+  display_name: "Migrate to T3 Code"
+  short_description: "Plan supported project and session imports"
+  default_prompt: "Use $migrate-to-t3 to inventory my projects and plan a supported Codex or Claude Code session migration into T3 Code."
