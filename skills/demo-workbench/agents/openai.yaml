@@ -1,0 +1,4 @@
+interface:
+  display_name: "Demo Workbench"
+  short_description: "Create, render, review and serve local demo videos"
+  default_prompt: "Use $demo-workbench to work on my demo video with the supplied brief and files, render a numbered version, and open the existing gallery on localhost."
