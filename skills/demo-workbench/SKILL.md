@@ -7,11 +7,13 @@ description: Create or iterate on local demo videos from a description, referenc
 
 Run the workflow for the user, not just a list of commands. This is a thin driver
 for **demo-workbench 0.2.x** (verified with 0.2.0), not a renderer or gallery bundle.
-The [CLI repository](https://github.com/EClinick/demo-workbench) is currently
-**private and requires access**. Installing this public skill neither installs
-the CLI nor grants access or redistribution rights.
+The [CLI repository](https://github.com/EClinick/demo-workbench) is public; the
+separate CLI is available on npm as
+[`@eclinick/demo-workbench`](https://www.npmjs.com/package/@eclinick/demo-workbench).
+Installing this public skill neither installs the CLI nor grants redistribution
+rights.
 
-Authoritative references (require repository access):
+Authoritative references:
 - [Installation and prerequisites](https://github.com/EClinick/demo-workbench/blob/main/docs/installation.md)
 - [CLI workflow](https://github.com/EClinick/demo-workbench/blob/main/README.md)
 - [Generated-project contracts](https://github.com/EClinick/demo-workbench/blob/main/template/README.md)
@@ -43,17 +45,21 @@ its gallery, or fetch private content into this skill.
   Explain the specific missing prerequisite using the installation docs: supported
   Node LTS with npm (CLI minimum Node 18), Git 2.28+, FFmpeg/ffprobe with libx264,
   AAC and drawtext, and a user-writable npm prefix whose executables are on PATH.
-  Git-source installation also requires existing authenticated private-repository
-  access; browser/agent GitHub access does not necessarily authenticate Git.
-  The documented route is `npm install --global --ignore-scripts --omit=dev
-  --no-audit --no-fund 'git+https://github.com/EClinick/demo-workbench.git#main'`
+  Obtain approval before any installation, update, dependency download,
+  authentication, global/config or network change. The default approved route is
+  `npm install -g @eclinick/demo-workbench` (PowerShell:
+  `npm.cmd install -g @eclinick/demo-workbench`). The executable remains
+  `demo-workbench` (`demo-workbench.cmd` in PowerShell).
+  For an explicitly approved Git-source alternative, use
+  `npm install --global --ignore-scripts --omit=dev --no-audit --no-fund 'git+https://github.com/EClinick/demo-workbench.git#main'`
   (one command; use `npm.cmd` in PowerShell). `main` moves; prefer an approved full
-  commit SHA for a pinned install. Obtain approval before any installation,
-  update, dependency download, authentication, global/config or network change.
-  If access is denied, explain that the repository owner must grant access; do
-  not bypass it, invent a release tag, embed credentials, use sudo, or invoke
-  `npx demo-workbench` / an unverified registry package. If docs are inaccessible,
-  say so. Do not silently upgrade existing projects to make commands work.
+  commit SHA for a pinned Git install. Public npm/Git installation does not
+  require repository access grants or npm login. Diagnose access failures; do not
+  bypass them, invent a release tag, embed credentials, use sudo, or change
+  configuration to force installation. The **unscoped npm package belongs to
+  someone else**: never install it or invoke `npx demo-workbench`. If docs are
+  inaccessible, say so. Do not silently upgrade existing projects to make
+  commands work.
 - Use the supplied creative brief, inputs, destination and constraints. Inspect
   the supplied media. Ask only for missing essentials (e.g. which of ambiguous
   files/destinations to use); do not impose a questionnaire. No reference is a

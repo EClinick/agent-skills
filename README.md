@@ -27,9 +27,21 @@ existing gallery. Localhost is the default; tailnet access requires an explicit
 request.
 
 **Separate prerequisite:** [demo-workbench](https://github.com/EClinick/demo-workbench)
-0.2.x is currently private and requires repository access. This public skill does
-not install the tool, grant access, or distribute its application/gallery/media.
-See the CLI's [installation docs](https://github.com/EClinick/demo-workbench/blob/main/docs/installation.md).
+0.2.x is public and available on npm as
+[`@eclinick/demo-workbench`](https://www.npmjs.com/package/@eclinick/demo-workbench)
+(verified with 0.2.0). With installation approval:
+
+```bash
+npm install -g @eclinick/demo-workbench
+```
+
+Use `npm.cmd` in PowerShell. The executable remains `demo-workbench`
+(`demo-workbench.cmd` in PowerShell). The unrelated unscoped npm package belongs
+to someone else: never install it or invoke `npx demo-workbench`.
+This public skill does not install the tool, distribute its application/gallery/media,
+or grant redistribution rights. See the CLI's
+[installation docs](https://github.com/EClinick/demo-workbench/blob/main/docs/installation.md)
+for prerequisites and the Git-source alternative.
 
 ## Install
 
@@ -54,7 +66,7 @@ npx skills add EClinick/agent-skills --skill demo-workbench --agent codex
 Add `--global` for user scope, or replace `codex` with your intended agent (for
 example `claude-code` or `pi`). Omit `--agent` to choose interactively. In native
 Windows PowerShell use `npx.cmd`. These commands install instructions, not the
-private CLI.
+separate CLI.
 
 The canonical skill is a regular directory in this repository. Skills CLI installs
 an independent snapshot; its optional agent symlinks point at that installed copy,
