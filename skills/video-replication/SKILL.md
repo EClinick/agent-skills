@@ -16,8 +16,8 @@ Read the companion [demo-workbench instructions](../demo-workbench/SKILL.md)
 (in this repository); if installed separately, locate the installed skill by name.
 If absent, obtain those instructions through an approved installation/access route
 before proceeding. The [CLI repository](https://github.com/EClinick/demo-workbench)
-is private and requires access. Follow its installed help and generated-project
-README, not assumptions about the moving `main` branch.
+is public; installing this skill does not install the CLI. Follow installed help
+and the generated-project README, not assumptions about the moving `main` branch.
 
 ## 1. Establish the brief and capability gate
 
