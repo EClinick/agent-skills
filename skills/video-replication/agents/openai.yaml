@@ -1,4 +1,4 @@
 interface:
   display_name: "Video Replication"
   short_description: "Rebuild reference videos with verified comparison audio"
-  default_prompt: "Use $video-replication with $demo-workbench to faithfully rebuild my reference video from the supplied files. Study the frames and timing, preserve the content, verify soundtrack playback in the actual side-by-side player, and confirm a bounded review budget before paid critics."
+  default_prompt: "Use $video-replication to faithfully rebuild my reference video with demo-workbench and verify sound in the actual side-by-side player. Use my requested judge model or ask which model to use, and confirm a bounded budget before paid reviews."
