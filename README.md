@@ -31,6 +31,19 @@ request.
 not install the tool, grant access, or distribute its application/gallery/media.
 See the CLI's [installation docs](https://github.com/EClinick/demo-workbench/blob/main/docs/installation.md).
 
+### `video-replication`
+
+[Faithfully reconstruct a reference video](skills/video-replication/SKILL.md) with
+measured frames/timing, independent assets, bounded fidelity reviews and verified
+soundtrack playback in the actual side-by-side comparison. Composes with
+`demo-workbench`; install both skills and obtain the separate CLI prerequisite.
+Sonnet 5.5 critics and an 8.0 mean target are proposed defaults, subject to model
+availability and approval of paid review scope. No automatic score-chasing loop.
+
+**Compatibility gate:** demo-workbench 0.2.0 produces silent comparisons. This
+skill requires verified supported comparison-audio capability for complete
+delivery; it does not install an unreleased fix or patch frozen projects.
+
 ## Install
 
 Install `ship` globally for Codex:
@@ -51,12 +64,19 @@ Install `demo-workbench` for Codex in the current project:
 npx skills add EClinick/agent-skills --skill demo-workbench --agent codex
 ```
 
+Install the replication workflow alongside its companion skill:
+
+```bash
+npx skills add EClinick/agent-skills --skill video-replication --agent codex
+npx skills add EClinick/agent-skills --skill demo-workbench --agent codex
+```
+
 Add `--global` for user scope, or replace `codex` with your intended agent (for
 example `claude-code` or `pi`). Omit `--agent` to choose interactively. In native
 Windows PowerShell use `npx.cmd`. These commands install instructions, not the
 private CLI.
 
-The canonical skill is a regular directory in this repository. Skills CLI installs
+Each canonical skill is a regular directory in this repository. Skills CLI installs
 an independent snapshot; its optional agent symlinks point at that installed copy,
 not at this author checkout or another repository. Updates are explicit via
 `npx skills update demo-workbench` (add `--global` for user scope), separate from
@@ -90,6 +110,15 @@ Use $demo-workbench to make a 3-second motion study from ./reference.mp4,
 with ./soundtrack.wav. Create a new ./motion-study project, adapt the scene
 to the reference's timing, render a first version, and open the gallery on
 localhost. No critic agents yet.
+```
+
+For faithful reference reconstruction:
+
+```text
+Use $video-replication with $demo-workbench to recreate ./reference.mp4 from
+scratch in a new ./replica project, using ./soundtrack.wav. Preserve the content
+and timing, and verify sound in the served side-by-side comparison itself.
+Start with a frame study and build plan; ask before paid reviews or generation.
 ```
 
 You can also ask to revise an existing generated project, render another version,
