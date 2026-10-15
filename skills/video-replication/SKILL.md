@@ -14,20 +14,10 @@ The [CLI repository](https://github.com/EClinick/demo-workbench) is public;
 installing this skill does not install the CLI. Follow installed help and the
 project's README, not assumptions about the moving `main` branch.
 
-Arguments: `--judge <model-id>` selects the review model, not the builder model.
-These are instructions interpreted by the agent, not a universal CLI parser.
-The optional `argument-hint` header advertises them in Claude Code autocomplete;
-it does not parse/validate flags. See [portability notes](../../README.md#video-replication).
-Explicit flag or natural-language judge selection wins over an explicitly stated
-user default. If selections conflict, clarify; if neither exists, ask one concise
-question. Verify availability before paid calls; never silently substitute a model.
+Judge model is separate from the builder model. If none is supplied and no user
+default exists, ask which to use. Verify availability; never silently substitute.
 Use the supplied rubric, target and round budget; otherwise propose target **8.0**
 and ask approval for the rubric and a finite budget before spending.
-
-```text
-/video-replication --judge <model-id> Recreate ./reference.mp4 with ./soundtrack.wav.
-Use /video-replication with judges using model X to recreate my reference video.
-```
 
 ## User intent
 

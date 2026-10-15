@@ -121,7 +121,13 @@ to the reference's timing, render a first version, and open the gallery on
 localhost. No critic agents yet.
 ```
 
-For faithful reference reconstruction:
+For faithful reference reconstruction, pass the judge model directly:
+
+```text
+/video-replication --judge <model-id> Recreate ./reference.mp4 with ./soundtrack.wav.
+```
+
+Or describe it naturally:
 
 ```text
 Use /video-replication with judges using model X to recreate ./reference.mp4
