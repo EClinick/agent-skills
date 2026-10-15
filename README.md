@@ -42,6 +42,13 @@ the agent interprets these instructions independently of the builder model. An
 explicit selection wins over a stated user default; otherwise the agent asks.
 The proposed mean target is 8.0, with an approved bounded paid review scope.
 
+**Argument header portability:** `argument-hint` is an optional
+[Claude Code autocomplete hint](https://code.claude.com/docs/en/skills#frontmatter-reference),
+not a flag parser or a field in the portable [Agent Skills specification](https://agentskills.io/specification).
+Other clients may ignore it; strict spec-only packaging/upload (including claude.ai
+and the Skills API) rejects it, so omit that header in those distribution copies.
+The body and natural-language invocation do not depend on client-specific substitution.
+
 **Compatibility gate:** demo-workbench 0.2.0 produces silent comparisons. This
 skill requires verified supported comparison-audio capability for complete
 delivery; it does not install an unreleased fix or patch frozen projects.

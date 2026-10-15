@@ -1,5 +1,6 @@
 ---
 name: video-replication
+argument-hint: "[--judge <model-id>] <reference> [soundtrack]"
 description: Recreate a reference video faithfully from scratch using demo-workbench, measured frame studies, a soundtrack, bounded model-agnostic reviews and an audible side-by-side comparison. Use for /video-replication or requests to replicate a video or motion design.
 ---
 
@@ -15,6 +16,8 @@ project's README, not assumptions about the moving `main` branch.
 
 Arguments: `--judge <model-id>` selects the review model, not the builder model.
 These are instructions interpreted by the agent, not a universal CLI parser.
+The optional `argument-hint` header advertises them in Claude Code autocomplete;
+it does not parse/validate flags. See [portability notes](../../README.md#video-replication).
 Explicit flag or natural-language judge selection wins over an explicitly stated
 user default. If selections conflict, clarify; if neither exists, ask one concise
 question. Verify availability before paid calls; never silently substitute a model.
