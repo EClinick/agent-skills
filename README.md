@@ -27,9 +27,31 @@ existing gallery. Localhost is the default; tailnet access requires an explicit
 request.
 
 **Separate prerequisite:** [demo-workbench](https://github.com/EClinick/demo-workbench)
-0.2.x is currently private and requires repository access. This public skill does
-not install the tool, grant access, or distribute its application/gallery/media.
+0.2.x is available separately from its public repository. This skill does not
+install the tool or distribute its application/gallery/media.
 See the CLI's [installation docs](https://github.com/EClinick/demo-workbench/blob/main/docs/installation.md).
+
+### `video-replication`
+
+[Faithfully reconstruct a reference video](skills/video-replication/SKILL.md) with
+measured frames/timing, independent assets, bounded fidelity reviews and verified
+soundtrack playback in the actual side-by-side comparison. Composes with
+`demo-workbench`; install both skills and obtain the separate CLI prerequisite.
+Choose judges with `/video-replication --judge <model-id>` or natural language;
+the agent interprets these instructions independently of the builder model. An
+explicit selection wins over a stated user default; otherwise the agent asks.
+The proposed mean target is 8.0, with an approved bounded paid review scope.
+
+**Argument header portability:** `argument-hint` is an optional
+[Claude Code autocomplete hint](https://code.claude.com/docs/en/skills#frontmatter-reference),
+not a flag parser or a field in the portable [Agent Skills specification](https://agentskills.io/specification).
+Other clients may ignore it; strict spec-only packaging/upload (including claude.ai
+and the Skills API) rejects it, so omit that header in those distribution copies.
+The body and natural-language invocation do not depend on client-specific substitution.
+
+**Compatibility gate:** demo-workbench 0.2.0 produces silent comparisons. This
+skill requires verified supported comparison-audio capability for complete
+delivery; it does not install an unreleased fix or patch frozen projects.
 
 ## Install
 
@@ -51,12 +73,19 @@ Install `demo-workbench` for Codex in the current project:
 npx skills add EClinick/agent-skills --skill demo-workbench --agent codex
 ```
 
+Install the replication workflow alongside its companion skill:
+
+```bash
+npx skills add EClinick/agent-skills --skill video-replication --agent codex
+npx skills add EClinick/agent-skills --skill demo-workbench --agent codex
+```
+
 Add `--global` for user scope, or replace `codex` with your intended agent (for
 example `claude-code` or `pi`). Omit `--agent` to choose interactively. In native
 Windows PowerShell use `npx.cmd`. These commands install instructions, not the
-private CLI.
+separate CLI.
 
-The canonical skill is a regular directory in this repository. Skills CLI installs
+Each canonical skill is a regular directory in this repository. Skills CLI installs
 an independent snapshot; its optional agent symlinks point at that installed copy,
 not at this author checkout or another repository. Updates are explicit via
 `npx skills update demo-workbench` (add `--global` for user scope), separate from
@@ -90,6 +119,21 @@ Use $demo-workbench to make a 3-second motion study from ./reference.mp4,
 with ./soundtrack.wav. Create a new ./motion-study project, adapt the scene
 to the reference's timing, render a first version, and open the gallery on
 localhost. No critic agents yet.
+```
+
+For faithful reference reconstruction, pass the judge model directly:
+
+```text
+/video-replication --judge <model-id> Recreate ./reference.mp4 with ./soundtrack.wav.
+```
+
+Or describe it naturally:
+
+```text
+Use /video-replication with judges using model X to recreate ./reference.mp4
+from scratch using ./soundtrack.wav. Preserve the content and timing, and
+verify sound in the served side-by-side comparison itself. Start with a frame
+study and build plan; ask before paid reviews or generation.
 ```
 
 You can also ask to revise an existing generated project, render another version,
